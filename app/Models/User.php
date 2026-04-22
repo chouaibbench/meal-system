@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-#[Fillable(['name', 'email', 'password'])]
+#[Fillable(['name', 'email', 'password', 'meal_credit', 'role'])]
 #[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable
 {
@@ -42,5 +42,14 @@ class User extends Authenticatable
     public function codes ()
     {
         return $this->hasMany(Code::class);
+    }
+
+    public function redirectPath()
+    {
+        return match($this->role) {
+            'admin' => '/admin',
+            'reception' => '/reception',
+            default => '/dashboard',
+        };
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Code;
 use Illuminate\Http\Request;
 
 class ReceptionController extends Controller
@@ -19,12 +20,12 @@ class ReceptionController extends Controller
 
         $code = Code::where('code', $request->code)->first();
 
-        if (!code) {
+        if (!$code) {
             return back()->with('error', 'Invalid code');
         }
 
         if ($code->is_used) {
-            return bach()->with('error', 'This code has already been us used');
+            return back()->with('error', 'This code has already been used');
         }
 
         if ($code->date !== now()->toDateString()) {

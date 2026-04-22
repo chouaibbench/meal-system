@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\ReseptionController;
+use App\Http\Controllers\ReceptionController;
 use Illuminate\Support\Facades\Route;
 
 // Admin فقط
@@ -23,8 +23,8 @@ Route::middleware(['auth', 'role:worker'])->group(function () {
 
 // Reception (chef)
 Route::middleware(['auth', 'role:reception'])->group(function () {
-    Route::get('/reception', [ReseptionController::class, 'index']);
-    Route::post('/validate-code', [ReseptionController::class, 'validateCode']);
+    Route::get('/reception', [ReceptionController::class, 'index']);
+    Route::post('/validate-code', [ReceptionController::class, 'validateCode']);
 });
 
 // Profile (أي واحد logged in)

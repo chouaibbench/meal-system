@@ -9,7 +9,7 @@
     <h1>User Dashboard</h1>
 
     <p><strong>Name:</strong> {{ $user->name}}</p>
-    <p><strong>Remaining Credit:</strong>{{ $user->mail_credit }}</p>
+    <p><strong>Remaining Credit:</strong> {{ $user->meal_credit }}</p>
 
     <hr>
 
