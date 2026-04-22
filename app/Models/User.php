@@ -17,6 +17,21 @@ class User extends Authenticatable
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
 
+    public function isAdmin()
+    {
+        return $this->role === 'admin';
+    }
+    
+    public function isReception()
+    {
+        return $this->role === 'reception';
+    }
+
+    public function isWorker()
+    {
+        return $this->role === 'worker';
+    }
+
     protected function casts(): array
     {
         return [

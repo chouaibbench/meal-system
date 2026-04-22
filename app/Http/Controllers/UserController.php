@@ -5,15 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\Code;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    public function dashboard($id)
+    public function dashboard()
     {
-        $user = \App\Models\User::findOrFail($id);
+        $user = Auth::user();
 
         $todayCode = Code::where('user_id', $user->id)
-            ->latest()
+            ->whereDate('date', Carbon::today())
             ->first();
 
         return view('users.dashboard', compact('user','todayCode'));
