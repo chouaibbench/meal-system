@@ -12,7 +12,7 @@ Route::middleware(['auth', 'role:admin'])->get('/admin', function () {
 
 // الصفحة الرئيسية
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/login');
 });
 
 // Worker dashboard

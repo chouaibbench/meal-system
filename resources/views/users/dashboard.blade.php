@@ -8,6 +8,11 @@
 <body>
     <h1>User Dashboard</h1>
 
+    <form method="POST" action="/logout">
+        @csrf
+        <button type="submit">Logout</button>
+    </form>
+
     <p><strong>Name:</strong> {{ $user->name}}</p>
     <p><strong>Remaining Credit:</strong> {{ $user->meal_credit }}</p>
 

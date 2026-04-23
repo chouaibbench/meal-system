@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->integer('meal_credit')->default(0);
-            $table->string('role')->default('worker');
             $table->timestamps();
         });
 
