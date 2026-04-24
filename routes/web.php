@@ -23,8 +23,8 @@ Route::middleware(['auth', 'role:worker'])->group(function () {
 
 // Reception (chef)
 Route::middleware(['auth', 'role:reception'])->group(function () {
-    Route::get('/reception', [ReceptionController::class, 'index']);
-    Route::post('/validate-code', [ReceptionController::class, 'validateCode']);
+    Route::get('/reception', [ReceptionController::class, 'index'])->name('reception.dashboard');
+    Route::post('/validate-code', [ReceptionController::class, 'validateCode'])->name('reception.validate');
 });
 
 // Profile (أي واحد logged in)

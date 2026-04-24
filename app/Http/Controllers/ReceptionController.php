@@ -9,7 +9,7 @@ class ReceptionController extends Controller
 {
     public function index()
     {
-        return view('reception');
+        return view('users.reception.dashboard');
     }
 
     public function validateCode( Request $request )

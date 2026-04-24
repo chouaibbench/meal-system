@@ -17,6 +17,6 @@ class UserController extends Controller
             ->whereDate('date', Carbon::today())
             ->first();
 
-        return view('users.dashboard', compact('user','todayCode'));
+        return view('users.worker.dashboard', compact('user','todayCode'));
     }
 }
